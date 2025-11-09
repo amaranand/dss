@@ -116,6 +116,7 @@ This strategy rewards:
 Join the discussion channel:
 
 **Telegram:**  
+https://t.me/dhanyawadss
 https://web.telegram.org/k/#@dhanyawadss
 
 ---
