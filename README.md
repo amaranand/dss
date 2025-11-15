@@ -78,8 +78,8 @@ All signals are evaluated on **daily EOD** data. (No Live)
 
 - **Stop loss applies after Stage 3** (i.e., when base position is fully active).  
 - SL level is relative to the latest confirmation price/accumulation zone.  
-- Recommended hard-cap: **do not let loss > 10%** from the latest accumulation zone (adjust to personal risk tolerance).  
-- F&O is not recommended due to long holding periods, large contract size, more capital (margin money), rollover costs, skills required for risk and capital management.
+- Recommended hard-stop: **do not let loss > 10%** from the latest accumulation zone (adjust to personal risk tolerance).  
+- F&O is not recommended due to long holding periods, large contract size, more capital (margin money), rollover costs, expert skills required for risk and capital management.
 ---
 
 ## 📤 Exit Strategy
@@ -92,8 +92,8 @@ All signals are evaluated on **daily EOD** data. (No Live)
 - Traders may choose to scale out earlier if personal objectives are met.
 
 **Extended positions (Stages 4–5):**
-- **Stage 4 (Weekly entry)**: exit near **Weekly RSI 60–65**.  
-- **Stage 5 (Monthly entry)**: exit near **Monthly RSI 60–65**.  
+- **Stage 4 (Weekly entry)**: exit near **Weekly RSI 60–65+**.  
+- **Stage 5 (Monthly entry)**: exit near **Monthly RSI 60–65+**.  
 - When higher-timeframe exits apply, daily exit signals for those units are ignored.
 
 ---
@@ -117,7 +117,7 @@ We plan to track and report (post Go Live):
 - CAGR, annualized volatility
 - Max drawdown, Sharpe ratio
 
-**Targets (example / aspirational)**:
+**Targets (aspirational)**:
 - Conservative: single-digit to mid-teens annualized when applied to a diversified index/large-cap pod. Expected to be better than FD and comparable to SIP 
 - Max drawdown target: **< 12%** (subject to market conditions and personal risk tolerance).
 
@@ -140,7 +140,7 @@ We plan to track and report (post Go Live):
 **Phase 4 — UI & User Feature**
 - Dashboard to show live triggers, scoreboard, and historical P&L for alerts.
 
-**Phase 5 — Monetization (much later)**
+**Phase 5 — Monetization (Optional)**
 - User subscriptions; personalized alert filters.
 
 **Always**: keep configuration dynamic — allow symbol-specific overrides (RSI thresholds, allocation caps).
