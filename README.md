@@ -44,15 +44,17 @@ The goal is to identify oversold value zones, accumulate in stages, and exit dur
 
 ## 🎯 Entry Rules (Staged Accumulation — daily EOD)
 
-All signals are evaluated on **daily EOD** data.
+All signals are evaluated on **daily EOD** data. (No Live)
+
+> We prefer to sit on cash (liquid funds), when no suitable stocks found and capital is idle.
 
 **Base accumulation (three stages):**
-
+ 
 | Stage | Condition | Allocation |
 |---:|---|---:|
-| **Stage 1** | Daily RSI < 40 **AND** Price ≤ 5% from 200 DMA | **Buy 25%** |
-| **Stage 2** | Daily RSI < 35 **AND** Price ≤ 3% from 200 DMA | **Buy 25%** |
-| **Stage 3** | Daily RSI < 30 **AND** Price ≤ 1% from 200 DMA | **Buy 50%** (base position complete) |
+| **Stage 1** | Daily RSI <= 40 **AND** Price ≤ 5% from 200 DMA | **Buy 25%** |
+| **Stage 2** | Daily RSI <= 35 **AND** Price ≤ 3% from 200 DMA | **Buy 25%** |
+| **Stage 3** | Daily RSI <= 30 **AND** Price ≤ 1% from 200 DMA | **Buy 50%** (base position complete) |
 
 - Start with small quantity and **pyramid** as confirmations come.
 - Stop-loss is **applied only after Stage 3** (see Risk section).
@@ -63,8 +65,8 @@ All signals are evaluated on **daily EOD** data.
 
 | Stage | Condition | Additional Allocation | Max cumulative |
 |---:|---|---:|---:|
-| **Stage 4 (Super)** | Weekly RSI < 40 **AND** Monthly RSI < 50 | +50% | 150% |
-| **Stage 5 (Super-Super)** | Weekly RSI < 35 **AND** Monthly RSI < 45 | +50% | **200% (max)** |
+| **Stage 4 (Super)** | Weekly RSI <= 40 **AND** Monthly RSI <= 50 | +50% | 150% |
+| **Stage 5 (Super-Super)** | Weekly RSI <= 35 **AND** Monthly RSI <= 45 | +50% | **200% (max)** |
 
 - If weekly/monthly confirmations occur while base positions are active, you may add Stage 4/5 allocations.
 - SL (stop-loss) moves to the **latest accumulation zone** when these stages are added.
@@ -77,12 +79,12 @@ All signals are evaluated on **daily EOD** data.
 - **Stop loss applies after Stage 3** (i.e., when base position is fully active).  
 - SL level is relative to the latest confirmation price/accumulation zone.  
 - Recommended hard-cap: **do not let loss > 10%** from the latest accumulation zone (adjust to personal risk tolerance).  
-- If using F&O, **hedge with put buys** (no call selling). Futures buys or call buys allowed; prefer buying hedges over selling options.  
-- This is long-only — preserve upside unlimited.
-
+- F&O is not recommended due to long holding periods, large contract size, more capital (margin money), rollover costs, skills required for risk and capital management.
 ---
 
 ## 📤 Exit Strategy
+
+> This is long-only strategy — preserve upside unlimited.
 
 **Base positions (Stages 1–3):**
 - **Sell 50%** when daily RSI reaches **70** (partial profit booking).  
@@ -107,16 +109,16 @@ All signals are evaluated on **daily EOD** data.
 
 ## 📈 Performance Expectations & Metrics (example)
 
-Track and report:
+We plan to track and report (post Go Live):
 - Number of signals / trades
 - Average holding period
 - Win rate
 - Average return per trade
-- CAGR (if backtested), annualized volatility
+- CAGR, annualized volatility
 - Max drawdown, Sharpe ratio
 
 **Targets (example / aspirational)**:
-- Conservative: single-digit to mid-teens annualized when applied to a diversified index/large-cap pod.  
+- Conservative: single-digit to mid-teens annualized when applied to a diversified index/large-cap pod. Expected to be better than FD and comparable to SIP 
 - Max drawdown target: **< 12%** (subject to market conditions and personal risk tolerance).
 
 ---
@@ -132,10 +134,13 @@ Track and report:
 **Phase 2 — Expand Universe**
 - NIFTY 50, F&O-capable symbols, ETFs (index/sector ETFs).
 
-**Phase 3 — UI & User Feature**
+**Phase 3 — Further Expand Universe**
+- Commodity (MCX) - Gold, Silver etc. Currency - BTC/ETH, USDINR etc.
+
+**Phase 4 — UI & User Feature**
 - Dashboard to show live triggers, scoreboard, and historical P&L for alerts.
 
-**Phase 4 — Monetization (much later)**
+**Phase 5 — Monetization (much later)**
 - User subscriptions; personalized alert filters.
 
 **Always**: keep configuration dynamic — allow symbol-specific overrides (RSI thresholds, allocation caps).
@@ -144,3 +149,46 @@ Track and report:
 
 ## 🗂 Project Structure (recommended)
 
+dss/
+├── README.md
+├── LICENSE
+├── requirements.txt
+├── config/
+│ ├── default_settings.yaml
+│ ├── symbols_list.yaml
+│ └── overrides/
+│ └── symbol_custom_settings.yaml
+├── data/
+│ ├── raw/
+│ ├── processed/
+│ └── logs/
+├── src/
+│ ├── core/
+│ ├── poc/
+│ ├── services/
+│ ├── app/
+│ └── ui/
+├── tests/
+├── docs/
+└── cron/
+
+---
+
+## Telegram & Contact
+Join the discussion channel:  
+- https://t.me/dhanyawadss  
+- https://web.telegram.org/k/#@dhanyawadss
+
+---
+
+---
+
+## Legal / Disclaimer
+This repository documents a rule-based idea for education and demonstration. **Not financial advice.** Use at your own risk. The owner/contributors are not liable for any trading losses.
+
+---
+
+## Licensing
+Open for learning, adaptation and non-commercial use unless you decide otherwise. Added a formal `LICENSE` file to specify the license you prefer (MIT/Apache2/GPL).
+
+---
