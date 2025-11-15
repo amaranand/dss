@@ -149,28 +149,28 @@ We plan to track and report (post Go Live):
 
 ## 🗂 Project Structure (recommended)
 
-dss/
-├── README.md
-├── LICENSE
-├── requirements.txt
-├── config/
-│ ├── default_settings.yaml
-│ ├── symbols_list.yaml
-│ └── overrides/
-│ └── symbol_custom_settings.yaml
-├── data/
-│ ├── raw/
-│ ├── processed/
-│ └── logs/
-├── src/
-│ ├── core/
-│ ├── poc/
-│ ├── services/
-│ ├── app/
-│ └── ui/
-├── tests/
-├── docs/
-└── cron/
+dss/  
+├── README.md  
+├── LICENSE  
+├── requirements.txt  
+├── config/  
+│ ├── default_settings.yaml  
+│ ├── symbols_list.yaml  
+│ └── overrides/  
+│ └── symbol_custom_settings.yaml  
+├── data/  
+│ ├── raw/  
+│ ├── processed/  
+│ └── logs/  
+├── src/  
+│ ├── core/  
+│ ├── poc/  
+│ ├── services/  
+│ ├── app/  
+│ └── ui/  
+├── tests/  
+├── docs/  
+└── cron/  
 
 ---
 
