@@ -1,0 +1,14 @@
+# Configuration settings for the oversold value zone strategy project
+
+settings:
+  data_source: "path/to/data/source"
+  output_directory: "path/to/output"
+  trading_strategy:
+    name: "Oversold Value Zone"
+    parameters:
+      rsi_period: 14
+      overbought_threshold: 70
+      oversold_threshold: 30
+  logging:
+    level: "INFO"
+    file: "logs/strategy.log"

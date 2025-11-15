@@ -1,0 +1,30 @@
+version: 1.0
+disable_existing_loggers: false
+
+formatters:
+  simple:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  detailed:
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s - %(filename)s:%(lineno)d'
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: simple
+    level: INFO
+
+  file:
+    class: logging.FileHandler
+    formatter: detailed
+    level: DEBUG
+    filename: 'oversold_value_zone.log'
+
+loggers:
+  oversold_value_zone:
+    level: DEBUG
+    handlers: [console, file]
+    propagate: no
+
+root:
+  level: WARNING
+  handlers: [console]
