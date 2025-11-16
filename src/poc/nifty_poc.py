@@ -107,6 +107,64 @@ def compute_monthly_rsi(df):
     monthly_combined['RSI_M'] = compute_rsi(monthly_combined['Close'])
     return monthly_combined['RSI_M']
 
+def generate_signals(df):
+    """
+    Generate entry signals for the latest day only (POC version).
+    """
+
+    latest = df.iloc[-1]
+
+    rsi = latest['RSI']
+    price = latest['Close']
+    dma200 = latest['SMA_200']
+    weekly_rsi = latest['RSI_W']
+    monthly_rsi = latest['RSI_M']
+
+    # % distance from 200 DMA using absolute difference
+    dma_diff_pct = abs(price - dma200) / dma200 * 100
+
+    signal = None
+    stage = None
+
+    # --- Base Stages (1–3) ---
+    if rsi <= 40 and dma_diff_pct <= 5:
+        signal = "Stage 1 Trigger"
+        stage = 1
+
+    if rsi <= 35 and dma_diff_pct <= 3:
+        signal = "Stage 2 Trigger"
+        stage = 2
+
+    if rsi <= 30 and dma_diff_pct <= 1:
+        signal = "Stage 3 Trigger"
+        stage = 3
+
+    # --- Extended Stages (Weekly + Monthly RSI) ---
+    if weekly_rsi <= 40 and monthly_rsi <= 50:
+        signal = "Stage 4 Trigger (Extended Opportunity)"
+        stage = 4
+
+    if weekly_rsi <= 35 and monthly_rsi <= 45:
+        signal = "Stage 5 Trigger (Super Extended)"
+        stage = 5
+
+    if signal is None:
+        print("No signals today.")
+
+    return {
+        "date": str(latest['Date']),
+        "close": float(price),
+        "RSI": float(rsi),
+        "RSI_W": float(weekly_rsi),
+        "RSI_M": float(monthly_rsi),
+        "DMA200": float(dma200),
+        "DMA_Diff_pct": float(dma_diff_pct),
+        "signal": signal,
+        "stage": stage
+    }
+
+
+
 def run_poc():
     df = ensure_data()
 
@@ -124,8 +182,17 @@ def run_poc():
 
     print("\n✔ Indicators computed successfully.\n")
     print(df.tail(10))
-    return df
 
+    signals = generate_signals(df)
+
+    print("\n=== SIGNALS FOR LATEST DAY ===")
+    if not signals:
+        print("No signals today.")
+    else:
+        for k, v in signals.items():
+            print(f"- {k}: {v}")
+
+    return df
 
 if __name__ == "__main__":
     run_poc()
