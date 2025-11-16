@@ -8,7 +8,7 @@ from pathlib import Path
 OUTPUT_DIR = Path("data/processed/nse_indices")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-CONFIG_FILE = "config/nse_indices.yaml"
+CONFIG_FILE = "config/indices/nse_broader_indices.yaml"
 
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
