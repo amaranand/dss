@@ -1,0 +1,143 @@
+# List of Indian market indices and their categories
+symbols:
+
+  # ---------------------------
+  # Large & Broad Indices
+  # ---------------------------
+  - name: Nifty 50
+    ticker: "^NSEI"
+    type: broad
+
+  - name: Nifty Next 50
+    ticker: "NIFTYNXT50.NS"
+    type: broad
+
+  - name: Nifty 100
+    ticker: "^CNX100"
+    type: broad
+
+  - name: Nifty 200
+    ticker: "^CNX200"
+    type: broad
+
+  - name: Nifty 500
+    ticker: "NIFTY500.NS"
+    type: broad
+
+  # ---------------------------
+  # Midcap Indices
+  # ---------------------------
+  - name: Nifty Midcap 50
+    ticker: "^MIDCP50"
+    type: midcap
+
+  - name: Nifty Midcap 100
+    ticker: "^NSEMDCP100"
+    type: midcap
+
+  - name: Nifty Midcap 150
+    ticker: "^NSEMDCP150"
+    type: midcap
+
+  # ---------------------------
+  # Smallcap Indices
+  # ---------------------------
+  - name: Nifty Smallcap 50
+    ticker: "^SMCP50"
+    type: smallcap
+
+  - name: Nifty Smallcap 100
+    ticker: "^CNXSC"
+    type: smallcap
+
+  - name: Nifty Smallcap 250
+    ticker: "^NSESMLCP250"
+    type: smallcap
+
+  # ---------------------------
+  # Sectorial Indices
+  # ---------------------------
+
+  - name: Nifty Auto
+    ticker: "^CNXAUTO"
+    type: sector
+
+  - name: Nifty Bank
+    ticker: "^NSEBANK"
+    type: sector
+
+  - name: Nifty Chemicals
+    ticker: "^CEX"
+    type: sector
+
+  - name: Nifty Financial Services
+    ticker: "NIFTY_FIN_SERVICE.NS"
+    type: sector
+
+  - name: Nifty Financial Services 25/50
+    ticker: "^CNXFIN"
+    type: sector
+
+  - name: Nifty Financial Services Ex Bank
+    ticker: "FINIETF.NS"
+    type: sector
+
+  - name: Nifty FMCG
+    ticker: "^CNXFMCG"
+    type: sector
+
+  - name: Nifty Healthcare
+    ticker: "NIFTY_HEALTHCARE.NS"
+    type: sector
+
+  - name: Nifty IT
+    ticker: "^CNXIT"
+    type: sector
+
+  - name: Nifty Media
+    ticker: "^CNXMEDIA"
+    type: sector
+
+  - name: Nifty Metal
+    ticker: "^CNXMETAL"
+    type: sector
+
+  - name: Nifty Pharma
+    ticker: "^CNXPHARMA"
+    type: sector
+
+  - name: Nifty Private Bank
+    ticker: "NIFTYPVTBANK.NS"
+    type: sector
+
+  - name: Nifty PSU Bank
+    ticker: "^CNXPSUBANK"
+    type: sector
+
+  - name: Nifty Realty
+    ticker: "^CNXREALTY"
+    type: sector
+
+  - name: Nifty Consumer Durables
+    ticker: "NIFTY_CONSR_DURBL.NS"
+    type: sector
+
+  - name: Nifty Oil and Gas
+    ticker: "NIFTY_OIL_AND_GAS.NS"
+    type: sector
+
+  - name: Nifty500 Healthcare
+    ticker: null
+    type: sector
+
+  - name: Nifty MidSmall Financial Services
+    ticker: null
+    type: sector
+
+  - name: Nifty MidSmall Healthcare
+    ticker: null
+    type: sector
+
+  - name: Nifty MidSmall IT & Telecom
+    ticker: null
+    type: sector

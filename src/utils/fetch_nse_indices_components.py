@@ -5,7 +5,7 @@ import pandas as pd
 from pathlib import Path
 
 # Folder to store output CSV files
-OUTPUT_DIR = Path("data/processed/nse_indices")
+OUTPUT_DIR = Path("data/processed/nse_indices_components")
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 CONFIG_FILE = "config/indices/nse_broader_indices.yaml"
