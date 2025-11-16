@@ -1,0 +1,18 @@
+# Virtual environments
+.venv/
+.venv
+venv/
+venv
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Ignore data folder and CSV files under data (any level)
+data/**/*.csv
+data/*.csv
+custom/
+custom/cache/
+custom/**/*
