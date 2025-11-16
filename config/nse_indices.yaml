@@ -1,0 +1,21 @@
+indices:
+  - name: Nifty 50
+    symbol: NIFTY50
+    csv_url: "https://nsearchives.nseindia.com/content/indices/ind_nifty50list.csv"
+
+  - name: Nifty 100
+    symbol: NIFTY100
+    csv_url: "https://nsearchives.nseindia.com/content/indices/ind_nifty100list.csv"
+
+  - name: Nifty 500
+    symbol: NIFTY500
+    csv_url: "https://nsearchives.nseindia.com/content/indices/ind_nifty500list.csv"
+
+  - name: Nifty Midcap 150
+    symbol: NIFTYMID150
+    csv_url: "https://nsearchives.nseindia.com/content/indices/ind_niftymidcap150list.csv"
+
+  - name: Nifty Smallcap 250
+    symbol: NIFTYSC250
+    csv_url: "https://nsearchives.nseindia.com/content/indices/ind_niftysmallcap250list.csv"
+
