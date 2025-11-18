@@ -2,59 +2,6 @@
 symbols:
 
   # ---------------------------
-  # Large & Broad Indices
-  # ---------------------------
-  - name: Nifty 50
-    ticker: "^NSEI"
-    type: broad
-
-  - name: Nifty Next 50
-    ticker: "NIFTYNXT50.NS"
-    type: broad
-
-  - name: Nifty 100
-    ticker: "^CNX100"
-    type: broad
-
-  - name: Nifty 200
-    ticker: "^CNX200"
-    type: broad
-
-  - name: Nifty 500
-    ticker: "NIFTY500.NS"
-    type: broad
-
-  # ---------------------------
-  # Midcap Indices
-  # ---------------------------
-  - name: Nifty Midcap 50
-    ticker: "^MIDCP50"
-    type: midcap
-
-  - name: Nifty Midcap 100
-    ticker: "^NSEMDCP100"
-    type: midcap
-
-  - name: Nifty Midcap 150
-    ticker: "^NSEMDCP150"
-    type: midcap
-
-  # ---------------------------
-  # Smallcap Indices
-  # ---------------------------
-  - name: Nifty Smallcap 50
-    ticker: "^SMCP50"
-    type: smallcap
-
-  - name: Nifty Smallcap 100
-    ticker: "^CNXSC"
-    type: smallcap
-
-  - name: Nifty Smallcap 250
-    ticker: "^NSESMLCP250"
-    type: smallcap
-
-  # ---------------------------
   # Sectorial Indices
   # ---------------------------
 

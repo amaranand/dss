@@ -4,8 +4,8 @@ import pandas as pd
 import yfinance as yf
 from datetime import datetime, timedelta
 
-CONFIG_DIR = "config/tickers"
-DATA_DIR   = "data/raw"
+CONFIG_DIR = "data/processed/stocks"
+DATA_DIR   = "data/raw/stocks"
 
 DOWNLOAD_YEARS = 2     # for POC fetch full history
 MIN_ROWS = 50          # sanity check
@@ -39,19 +39,22 @@ def load_all_tickers():
 # ----------------------------------------------------------
 # 2. Fetch data for a SINGLE ticker
 # ----------------------------------------------------------
-def fetch_ticker_data(ticker, years=DOWNLOAD_YEARS):
+def fetch_ticker_data(ticker, output_dir, years=DOWNLOAD_YEARS):
     safe_name = ticker.replace("^", "").replace("=", "")
-    file_path = os.path.join(DATA_DIR, f"{safe_name}.csv")
+    file_path = os.path.join(output_dir, f"{safe_name}.csv")
 
-    # ---- always download full data in POC ----
+    os.makedirs(output_dir, exist_ok=True)
+
     end = datetime.today()
     start = end - timedelta(days=365 * years)
 
     print(f"\n⏳ Downloading {ticker} (last {years} years)...")
 
-    df = yf.download(ticker, start=start, end=end, 
-                      auto_adjust=True,   # explicitly choose adjusted prices
-                      progress=False)
+    df = yf.download(
+        ticker, start=start, end=end,
+        auto_adjust=True,
+        progress=False
+    )
 
     if df.empty:
         print(f"❌ No data fetched for {ticker}. Possibly holiday or source issue.")
@@ -62,7 +65,6 @@ def fetch_ticker_data(ticker, years=DOWNLOAD_YEARS):
 
     print(f"✔ Saved: {file_path} ({len(df)} rows)")
     return df
-
 
 # ----------------------------------------------------------
 # 3. Fetch data for ALL tickers listed in YAML config
@@ -76,16 +78,20 @@ def fetch_all_configured():
 
     print(f"\n=== TOTAL SYMBOLS FOUND: {len(tickers)} ===")
 
-    os.makedirs(DATA_DIR, exist_ok=True)
-
     success = []
     failed = []
 
     for item in tickers:
-        if not item["ticker"]:     # skips None, "", null, missing
+        if not item["ticker"]:
             continue
 
-        df = fetch_ticker_data(item["ticker"])
+        # Create a subfolder for this config file
+        config_name = os.path.splitext(item["source_file"])[0]   # remove .yaml
+        output_dir = os.path.join(DATA_DIR, config_name)
+        os.makedirs(output_dir, exist_ok=True)
+
+        # Pass the folder to fetch function
+        df = fetch_ticker_data(item["ticker"], output_dir=output_dir)
 
         if df is None or len(df) < MIN_ROWS:
             failed.append(item)

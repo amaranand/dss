@@ -11,8 +11,12 @@ dist/
 build/
 
 # Ignore data folder and CSV files under data (any level)
+data/
 data/**/*.csv
 data/*.csv
 custom/
 custom/cache/
 custom/**/*
+
+# BUT keep these files
+!data/**/README.md
